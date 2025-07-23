@@ -8,7 +8,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { loading, error, isLoggedIn } = useSelector((state) => state.user);
+  const { loading, error, isLoggedIn, user } = useSelector((state) => state.user);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,12 +17,13 @@ function Login() {
     e.preventDefault();
     dispatch(loginUser(email, password));
   };
-
+  
   useEffect(() => {
-    if (isLoggedIn) {
-      navigate("/user");
+    if (isLoggedIn && user) {
+      navigate("/profile");
     }
-  }, [isLoggedIn, navigate]);
+  }, [isLoggedIn, user, navigate]);
+
 
   return (
     <main className="main bg-dark">

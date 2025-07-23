@@ -3,6 +3,8 @@ import {
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAILURE,
   USER_LOGOUT,
+  USER_DATA,
+  USER_CHECKED,
 } from "../actions/user.action";
 
 const initialState = {
@@ -11,6 +13,7 @@ const initialState = {
   isLoggedIn: false,
   loading: false,
   error: null,
+  isUserChecked: false,
 };
 
 export default function userReducer(state = initialState, action) {
@@ -43,6 +46,19 @@ switch (action.type) {
     case USER_LOGOUT:
       return {
         ...initialState,
+      };
+    
+    case USER_DATA:
+      return {
+        ...state,
+        user: action.payload,
+        isLoggedIn: true,
+      };
+ 
+    case USER_CHECKED:
+      return {
+        ...state,
+        isUserChecked: true,
       };
 
     default:
