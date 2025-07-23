@@ -6,6 +6,7 @@ export const USER_LOGIN_FAILURE = "USER_LOGIN_FAILURE";
 export const USER_LOGOUT = "USER_LOGOUT";
 export const USER_DATA ="USER_DATA";
 export const USER_CHECKED = "USER_CHECKED";
+export const UPDATE_USERNAME = "UPDATE_USERNAME";
 
 export const loginUser = (email, password) => {
   return async (dispatch) => {
@@ -84,4 +85,31 @@ export const logoutUser = () => {
   };
 };
 
+export const updateUserName = (userName) => {
+  return async (dispatch, getState) => {
+    try {
+      const token = getState().user.token;
+      const response = await axios.put(
+        "http://localhost:3001/api/v1/user/profile",
+        { userName },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
+      if (response.status === 200) {
+
+      dispatch({
+        type: UPDATE_USERNAME,
+        payload: response.data.body.userName,
+      });
+    } else {
+      console.error("Error updating user data:", response.data.message);
+    }
+  } catch (error) {
+      console.error("Error updating user data:", error);
+    }
+}
+}

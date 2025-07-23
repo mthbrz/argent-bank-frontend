@@ -5,6 +5,7 @@ import {
   USER_LOGOUT,
   USER_DATA,
   USER_CHECKED,
+  UPDATE_USERNAME,
 } from "../actions/user.action";
 
 const initialState = {
@@ -60,7 +61,14 @@ switch (action.type) {
         ...state,
         isUserChecked: true,
       };
-
+    case UPDATE_USERNAME:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          userName: action.payload,
+        },
+      };
     default:
       return state;
   }
