@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projets",
+  "info": {
+    "singularName": "projet",
+    "pluralName": "projets",
+    "displayName": "Projet"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "titre": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "ImageHover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "url": {
+      "type": "blocks"
+    },
+    "demo": {
+      "type": "blocks"
+    },
+    "date": {
+      "type": "date"
+    },
+    "Techno": {
+      "type": "enumeration",
+      "enum": [
+        "HTML / CSS",
+        "Javascript",
+        "React",
+        "Redux",
+        "SEO / Accessibilité"
+      ]
+    }
+  }
+}

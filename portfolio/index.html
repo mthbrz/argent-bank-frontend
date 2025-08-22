@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Portfolio de Mathilde Bruzat, développeuse web. 
+      Réalisé avec React et designé avec Tailwind CSS."
+    />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (saved === "dark" || (!saved && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
+
+    <link href="/src/components/css/ouput.css" rel="stylesheet" />
+    <title>Portfolio Mathilde Bruzat</title>
+  </head>
+  <body>
+    <div class="dark">
+      <!-- <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message"></textarea>
+      </form> -->
+      <div id="root"></div>
+      <script type="module" src="/src/main.jsx"></script>
+    </div>
+  </body>
+</html>
