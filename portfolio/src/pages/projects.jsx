@@ -12,7 +12,6 @@ function Projets() {
     async function getData() {
       const data = await fetchProjets();
       setProjets(data);
-      console.log("Données reçues de Strapi :", data);
     }
     getData();
   }, []);
